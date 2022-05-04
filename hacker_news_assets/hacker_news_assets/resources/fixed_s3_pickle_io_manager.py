@@ -1,12 +1,12 @@
 import pickle
 
-import boto3
+import moto
 
 from dagster import IOManager, MetadataEntry, io_manager
 
 
 def s3_client():
-    return boto3.resource("s3", use_ssl=True).meta.client
+    return moto.resource("s3", use_ssl=True).meta.client
 
 
 class FixedS3PickleIOManager(IOManager):

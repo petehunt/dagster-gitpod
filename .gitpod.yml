@@ -2,8 +2,12 @@
    
 tasks:
 - init: |
-    pip install dagster dagit requests
-  command: dagit -f hello_cereal.py
+    ( cd hacker_news_assets && pip install -e . )
+    mkdir -p ~/.dbt
+    cp hacker_news_assets/hacker_news_dbt/config/profiles.yml ~/.dbt/profiles.yml
+    ( cd hacker_news_assets/hacker_news_dbt && dbt run ) # should fail but creates some directories
+    pip install moto[s3]
+    pip install pytest
 ports:
   - port: 3000
     onOpen: open-preview
