@@ -6,4 +6,4 @@ tasks:
   command: dagit -f hello_cereal.py
 ports:
   - port: 3000
-    onOpen: open-preview
+    onOpen: open-browser
