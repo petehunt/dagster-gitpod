@@ -7,7 +7,7 @@ tasks:
     cd /workspace
     zip -qr venv.zip venv
     rm -fr venv
-- command: |
+  command: |
     cd /workspace
     [ ! -d "/workspace/venv" ] && unzip -q venv.zip
     source /workspace/venv/bin/activate
