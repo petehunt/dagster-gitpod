@@ -2,17 +2,8 @@
    
 tasks:
 - init: |
-    python3 -m venv /workspace/venv
-    source /workspace/venv/bin/activate
-    pushd /workspace
-    zip -qr venv.zip venv
-    rm -fr venv
-    popd
-  command: |
-    pushd /workspace
-    [ ! -d "/workspace/venv" ] && unzip -q venv.zip
-    source /workspace/venv/bin/activate
-    popd
+    pip install dagster dagit requests
+  command: dagit -f hello_cereal.py
 ports:
   - port: 3000
-    onOpen: open-browser
+    onOpen: open-preview
