@@ -4,13 +4,15 @@ tasks:
 - init: |
     python3 -m venv /workspace/venv
     source /workspace/venv/bin/activate
-    cd /workspace
+    pushd /workspace
     zip -qr venv.zip venv
     rm -fr venv
+    popd
   command: |
-    cd /workspace
+    pushd /workspace
     [ ! -d "/workspace/venv" ] && unzip -q venv.zip
     source /workspace/venv/bin/activate
+    popd
 ports:
   - port: 3000
     onOpen: open-browser
