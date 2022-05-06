@@ -1,5 +1,5 @@
 hacker_news_dbt:
-  target: dev
+  target: local
   outputs:
     local:
       type: duckdb
