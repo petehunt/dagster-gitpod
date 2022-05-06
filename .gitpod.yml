@@ -8,6 +8,9 @@ tasks:
     ( cd hacker_news_assets/hacker_news_dbt && dbt run ) # should fail but creates some directories
     pip install moto[s3]
     pip install pytest
+    pip install dagit
+    echo 'To run tests: cd hacker_news_assets && pytest'
+    echo 'To run dagit: cd hacker_news_assets && dagit -w workspace.yaml'
 ports:
   - port: 3000
     onOpen: open-preview
